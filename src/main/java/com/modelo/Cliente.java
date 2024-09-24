@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.barberturn.modelo;
+package com.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,6 +24,8 @@ public class Cliente {
     private String apellido;
 
     private Long telefono;
+
+    private String contrsena;
 
     private String email;
 
