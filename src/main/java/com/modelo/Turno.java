@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.modelo;
 
-import jakarta.persistence.Column;
+import com.modelodto.Localdto;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
@@ -28,10 +23,10 @@ public class Turno {
     private Empleado empleado;
 
     @ManyToOne
-    private Local turnolocal;
+    private Localdto turnolocal;
 
-    private LocalDateTime turnofecha;
+    private LocalDateTime fecha;
 
-    private String turnoestado;
+    private String estado;
 
 }

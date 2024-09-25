@@ -8,6 +8,7 @@ package com.Services;
 import java.util.List;
 import java.util.Optional;
 
+import com.modelo.Cliente;
 import com.modelo.Empleado;
 import com.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,17 @@ public class EmpleadoServices {
     // Eliminar un empleado por su ID
     public void deleteEmpleado(Empleado empleado) {
         empleadoRepository.delete(empleado);
+    }
+
+    public Empleado updateEmpleado(Long id, Empleado updateEmpleado) {
+        return empleadoRepository.findById(id).map(Empleado -> {
+            Empleado.setNombre(updateEmpleado.getNombre());
+            Empleado.setApellido(updateEmpleado.getApellido());
+            Empleado.setTelefono(updateEmpleado.getTelefono());
+            Empleado.setEmail(updateEmpleado.getEmail());
+            Empleado.setPuesto(updateEmpleado.getPuesto());
+            return empleadoRepository.save(Empleado); // Guardar cliente actualizado
+        }).orElseThrow(() -> new RuntimeException("Empleado no encontrado"));
     }
 
 }
