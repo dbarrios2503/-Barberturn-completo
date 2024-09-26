@@ -1,6 +1,9 @@
 
-package com.modelo;
+package com.modelodto;
 
+import com.modelo.Empleado;
+import com.modelo.Local;
+import com.modelodto.Localdto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -9,21 +12,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class Turno {
 
-   
-    @Id
+public class Turnodto {
+
+
     private Long id;
 
-    @ManyToOne
+
     private Empleado empleado;
 
-    @ManyToOne
-    private Local local;
+    private Local turnolocal;
 
     private LocalDateTime fecha;
 

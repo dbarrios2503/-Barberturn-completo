@@ -14,13 +14,15 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "local")
 public class Local {
+
     @Id
-    private int id;
+    private int idlocal;
 
     private String nombre;
     private String dirrecion;
 
     private long telefono;
+
 
 
 }

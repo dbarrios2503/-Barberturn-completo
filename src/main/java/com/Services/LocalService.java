@@ -1,22 +1,22 @@
 package com.Services;
 
-import com.modelo.Empleado;
 import com.modelo.Local;
-import com.modelodto.Localdto;
+import com.modelo.Turno;
 import com.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class LocalService {
 
 
     @Autowired
-    private LocalRepository localRepository;
+    private static LocalRepository localRepository;
 
     // Crear o actualizar un empleado
-    public Local saveOrUpdate(Local local) {
+    public static Local saveOrUpdate(Local local) {
         return localRepository.save(local);
     }
 
@@ -36,12 +36,13 @@ public class LocalService {
     }
     public Local updateLocal(Long id, Local updateLocal) {
         return localRepository.findById(id).map(Local -> {
-            Local.setId(updateLocal.getId());
+            Local.setIdlocal(updateLocal.getIdlocal());
             Local.setNombre(updateLocal.getNombre());
             Local.setTelefono(updateLocal.getTelefono());
             Local.setDirrecion(updateLocal.getDirrecion());
             return localRepository.save(Local); // Guardar cliente actualizado
         }).orElseThrow(() -> new RuntimeException("Local no encontrado"));
     }
+
 
 }
